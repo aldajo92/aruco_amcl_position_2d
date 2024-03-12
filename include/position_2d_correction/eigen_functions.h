@@ -4,9 +4,9 @@
 #include <Eigen/Dense>
 #include <vector>
 
-Eigen::Vector2d calculate_center(const Eigen::MatrixXd &points);
 Eigen::Vector2d calculate_center(const std::vector<Eigen::Vector2d> &points);
 std::vector<Eigen::Vector2d> rotate_points(const std::vector<Eigen::Vector2d> &points_i, double angle_d);
+std::vector<Eigen::Vector2d> rotate_points(const std::vector<Eigen::Vector2d>& points_i, const Eigen::Vector2d& XC, double angle_d);
 Eigen::Vector2d calculate_translation_error(const std::vector<Eigen::Vector2d> &points_ref, const std::vector<Eigen::Vector2d> &points_i);
 std::vector<Eigen::Vector2d> translate_points(const std::vector<Eigen::Vector2d> &points_i, const Eigen::Vector2d &X_delta);
 double cost_rotation_ref(const std::vector<Eigen::Vector2d> &points_ref, const std::vector<Eigen::Vector2d> &points_translated, double angle_d);

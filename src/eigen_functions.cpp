@@ -1,13 +1,5 @@
 #include "position_2d_correction/eigen_functions.h"
 
-Eigen::Vector2d calculate_center(const Eigen::MatrixXd &points)
-{
-  int num_points = points.cols();
-  // Calculate the center by averaging the first and last points
-  Eigen::Vector2d center = (points.col(0) + points.col(num_points - 1)) / 2.0;
-  return center;
-}
-
 Eigen::Vector2d calculate_center(const std::vector<Eigen::Vector2d> &points)
 {
   int num_points = points.size();
@@ -44,6 +36,36 @@ std::vector<Eigen::Vector2d> rotate_points(const std::vector<Eigen::Vector2d> &p
   for (int i = 0; i < points_r.size(); ++i)
   {
     points_new[i] = points_r[i] + center;
+  }
+
+  return points_new;
+}
+
+std::vector<Eigen::Vector2d> rotate_points(
+    const std::vector<Eigen::Vector2d>& points_i, const Eigen::Vector2d& XC, double angle_d) {
+
+  // 1. Center the points at the origin
+  std::vector<Eigen::Vector2d> points_c(points_i.size());
+  for (int i = 0; i < points_i.size(); ++i) {
+    points_c[i] = points_i[i] - XC;
+  }
+
+  // 2. Create rotation matrix
+  double angle_r = M_PI * angle_d / 180.0;  // Convert degrees to radians
+  Eigen::Matrix2d R;
+  R << std::cos(angle_r), -std::sin(angle_r),
+       std::sin(angle_r),  std::cos(angle_r);
+
+  // 3. Apply rotation
+  std::vector<Eigen::Vector2d> points_r(points_c.size());
+  for (int i = 0; i < points_c.size(); ++i) {
+    points_r[i] = R * points_c[i];
+  }
+
+  // 4. Translate back to original center
+  std::vector<Eigen::Vector2d> points_new(points_r.size());
+  for (int i = 0; i < points_r.size(); ++i) {
+    points_new[i] = points_r[i] + XC;
   }
 
   return points_new;
