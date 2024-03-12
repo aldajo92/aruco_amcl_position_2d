@@ -1,6 +1,6 @@
 # Position correction 2D using Eigen library
 
-ROS package inspired on this [colab](https://colab.research.google.com/drive/1fEtcp_mCT1p9zLpd4E0gtyo0RONKybSG?usp=sharing)
+ROS package inspired on this [jupyter notebook](./jupyter/CorrectPoints.ipynb).
 
 Make sure to have Eigen library installed in your system. If not, you can install it by running the following command:
 ```bash
