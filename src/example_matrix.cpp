@@ -1,10 +1,10 @@
 #include <ros/ros.h>
 #include <iostream>
-#include "eigen_position_correction/eigen_functions.h"
+#include "position_2d_correction/eigen_functions.h"
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "position_correction_node");
+  ros::init(argc, argv, "position_2d_correction_node");
   ros::NodeHandle n;
 
   // Create an array of size 3 to hold Vector2d objects

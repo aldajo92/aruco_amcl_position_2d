@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(eigen_position_correction)
+project(position_2d_correction)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -111,7 +111,7 @@ include_directories(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES eigen_position_correction
+#  LIBRARIES position_2d_correction
 #  CATKIN_DEPENDS roscpp std_msgs
 #  DEPENDS system_lib
 )
@@ -129,7 +129,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/eigen_position_correction.cpp
+#   src/${PROJECT_NAME}/position_2d_correction.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -221,7 +221,7 @@ if(CATKIN_ENABLE_TESTING)
 endif()
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_eigen_position_correction.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_position_2d_correction.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

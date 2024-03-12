@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <Eigen/Dense>
-#include "eigen_position_correction/eigen_functions.h"
+#include "position_2d_correction/eigen_functions.h"
 
 TEST(EigenFunctions, CalculateCenterVector_TwoPoints_Positive) {
     std::vector<Eigen::Vector2d> points = {Eigen::Vector2d(1, 2), Eigen::Vector2d(3, 4)};
